@@ -1,7 +1,19 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
+echo '🏗️👷 Styling, testing and building your project before committing'
 
 # Temporary workaround for windows user https://github.com/okonet/lint-staged/issues/1164
 exec >/dev/tty 2>&1
 
 npx lint-staged
+
+# Check ESLint Standards
+yarn checker ||
+(
+    echo '🙈👷🔨❌ Yoo, your code looks disgusting. Check linter 🙈👷🔨❌
+          Add changes and try commit again.';
+    false;
+)
+
+# If there is no error linter, the codes will be commited
+echo '🎉🎉🎉🎉 Yeayy, there is no error linter in your codes... I am committing this now. ✨🚀🏄‍♂️🍻'
