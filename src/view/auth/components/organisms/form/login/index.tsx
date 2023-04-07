@@ -5,12 +5,13 @@ import {
 	ValidationSchemaLoginType,
 } from '@/view/auth/schemas/login';
 import {useLoginViewModel} from '@/view/auth/view-models/LoginViewModel';
+import Button from '@/view/common/components/atoms/button';
+import Input from '@/view/common/components/atoms/input';
 import useDisclosure from '@/view/common/hooks/useDisclosure';
 import {useForm} from '@/view/common/hooks/useForm';
 import {useAppDispatch} from '@/view/common/store/hooks';
 import {onLoginSuccess} from '@/view/common/store/slices/auth';
 import {useRouter} from 'next/router';
-import {Button, Input} from 'posy-fnb-core';
 import React from 'react';
 import * as reactHookForm from 'react-hook-form';
 import {AiOutlineEye, AiOutlineEyeInvisible} from 'react-icons/ai';
